@@ -15,7 +15,7 @@ class Role(models.Model):
     
 class Employee(models.Model):
     empname = models.CharField(max_length=250)
-    email = models.EmailField(max_length=200)
+    email = models.EmailField(max_length=200,unique=True)
     role = models.ForeignKey(Role,on_delete=models.CASCADE)
 
     def __str__(self):
@@ -32,7 +32,6 @@ class Project(models.Model):
         return self.project_name
 
 
-    
 class Task(models.Model):
     STATUS_CHOICES = [
     ('Process', 'Process'),
